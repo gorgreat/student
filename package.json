@@ -9,9 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdbootstrap/react-popup": "^1.0.0",
     "bootstrap": "^5.3.0-alpha1",
+    "bootstrap-modal-methods": "^1.0.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
