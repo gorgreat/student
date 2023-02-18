@@ -32,7 +32,6 @@ const StudentFormAdd = () => {
         const isValid = validate();
         if (!isValid) { return; };
         setData(data);
-        console.log("данные есть", data);
         localStorage.setItem("formData", JSON.stringify(data));
         setModalVisible(true);
     };

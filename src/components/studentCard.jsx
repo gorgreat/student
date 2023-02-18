@@ -9,22 +9,25 @@ const StudentCard = () => {
     const CURRENT_YEAR = 2023;
     const dataForm = localStorage.getItem("formData");
     const data = JSON.parse(dataForm);
-    const [student, setStudent] = useState(data);
-    const year = CURRENT_YEAR - data.year;
-    const yearPhrase = declOfNum(year.toString().slice(-1), ["год", "года", "лет"]);
+    const [, setStudent] = useState(data);
 
     const handleDelete = () => {
         localStorage.clear();
         setStudent();
     };
 
+    const yearPhrase = (data, year) => {
+        const yearOfBirth = year - data.year;
+        return declOfNum(yearOfBirth.toString().slice(-1), ["год", "года", "лет"]);
+    };
+
     return <>
-        {student ? <>
+        {data ? <>
             <h1>Наш студент</h1>
             <p><b>Имя: </b> {data.name}</p>
             <p><b>Фамилия: </b> {data.surname}</p>
             <p><b>Год рождения: </b> {data.year} </p>
-            <p><b>Возраст: </b> {year} {yearPhrase}</p>
+            <p><b>Возраст: </b>{CURRENT_YEAR - data.year} {yearPhrase(data, CURRENT_YEAR)}</p>
             <p><b>Портфель: </b> <a href={data.url}>{data.url}</a></p>
             <Link to="/edit" className="btn btn-secondary mr-3">Редактировать</Link>
             <button className="btn btn-danger mx-2" onClick={handleDelete}>Удалить</button>
